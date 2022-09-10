@@ -8,21 +8,49 @@
 
 import UIKit
 
+struct TRackModel {
+    var trackName: String
+    var artistName: String
+}
+
 class SearchViewController: UITableViewController {
+    
+    let searchController = UISearchController(searchResultsController: nil)
+    
+    let tracks = [TRackModel(trackName: "bad guy", artistName: "Billie Eilish"), TRackModel(trackName: "bury a friend", artistName: "Billie Eilish")]
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         view.backgroundColor = .white
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellid")
+        
+        setupSearchBar()
     }
+    
+    private func setupSearchBar() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
+    
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5
+        return tracks.count
     }
     
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "cellid", for: indexPath)
-        cell.textLabel?.text = "indexPath: \(indexPath)"
+        let track = tracks[indexPath.row]
+        cell.textLabel?.text = "indexPath: \(track.trackName)\n\(track.artistName)"
+        cell.textLabel?.numberOfLines = 2
+        cell.imageView?.image = #imageLiteral(resourceName: "boxINvisible")
         return cell
-        
+    }
+}
+
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        print(searchText)
     }
 }
