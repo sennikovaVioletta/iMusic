@@ -27,6 +27,7 @@ class SearchViewController: UITableViewController {
         tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellid")
         
         setupSearchBar()
+        
     }
     
     private func setupSearchBar() {
@@ -53,5 +54,19 @@ class SearchViewController: UITableViewController {
 extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
         print(searchText)
+        let url = "https://itunes.apple.com/search?term=\(searchText)"
+        AF.request(url).responseData { dataREsponse in
+            if let error = dataREsponse.error {
+                print("error received requestioning data: \(error.localizedDescription)")
+                return
+            }
+            guard let data = dataREsponse.data else {
+                return
+            }
+            let someString = String(data: data, encoding: .utf8)
+            print(someString ?? "")
+            return
+        }
     }
+    
 }
