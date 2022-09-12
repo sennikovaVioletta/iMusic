@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -15,6 +15,7 @@
 		0825E74828CB948700D4545C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0825E74628CB948700D4545C /* LaunchScreen.storyboard */; };
 		0825E75028CB94DF00D4545C /* MainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0825E74F28CB94DF00D4545C /* MainTabBarController.swift */; };
 		0872BB9528CBBA2400B2C8FF /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 0872BB9428CBBA2400B2C8FF /* SearchViewController.swift */; };
+		08F5CEBF28CF40B700DE0E61 /* SearchResponce.swift in Sources */ = {isa = PBXBuildFile; fileRef = 08F5CEBE28CF40B700DE0E61 /* SearchResponce.swift */; };
 		48DD8A514ED25A71A5310559 /* Pods_iMusic.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = C675DAC4E823496FF769240D /* Pods_iMusic.framework */; };
 /* End PBXBuildFile section */
 
@@ -30,6 +31,7 @@
 		0825E74928CB948700D4545C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		0825E74F28CB94DF00D4545C /* MainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarController.swift; sourceTree = "<group>"; };
 		0872BB9428CBBA2400B2C8FF /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
+		08F5CEBE28CF40B700DE0E61 /* SearchResponce.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchResponce.swift; sourceTree = "<group>"; };
 		A6282A5E883A3734BF0527F0 /* Pods-iMusic.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-iMusic.debug.xcconfig"; path = "Target Support Files/Pods-iMusic/Pods-iMusic.debug.xcconfig"; sourceTree = "<group>"; };
 		C675DAC4E823496FF769240D /* Pods_iMusic.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_iMusic.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -72,6 +74,7 @@
 				0825E73F28CB948500D4545C /* ViewController.swift */,
 				0825E74F28CB94DF00D4545C /* MainTabBarController.swift */,
 				0872BB9428CBBA2400B2C8FF /* SearchViewController.swift */,
+				08F5CEBE28CF40B700DE0E61 /* SearchResponce.swift */,
 				0825E74128CB948500D4545C /* Main.storyboard */,
 				0825E74428CB948700D4545C /* Assets.xcassets */,
 				0825E74628CB948700D4545C /* LaunchScreen.storyboard */,
@@ -86,7 +89,6 @@
 				A6282A5E883A3734BF0527F0 /* Pods-iMusic.debug.xcconfig */,
 				06242A16397E2A8770C84523 /* Pods-iMusic.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -213,6 +215,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				08F5CEBF28CF40B700DE0E61 /* SearchResponce.swift in Sources */,
 				0872BB9528CBBA2400B2C8FF /* SearchViewController.swift in Sources */,
 				0825E74028CB948500D4545C /* ViewController.swift in Sources */,
 				0825E73C28CB948500D4545C /* AppDelegate.swift in Sources */,
