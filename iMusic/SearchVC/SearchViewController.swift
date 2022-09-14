@@ -16,7 +16,7 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
 
   var interactor: SearchBusinessLogic?
   var router: (NSObjectProtocol & SearchRoutingLogic)?
-
+    let searchController = UISearchController(searchResultsController: nil)
 
     @IBOutlet weak var table: UITableView!
     
@@ -43,14 +43,39 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
   
   override func viewDidLoad() {
     super.viewDidLoad()
+    setUpSearchBar()
   }
   
+    private func setUpSearchBar() {
+        navigationItem.searchController = searchController
+        navigationItem.hidesSearchBarWhenScrolling = false
+        searchController.searchBar.delegate = self
+    }
   func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
 
   }
   
 }
 
+// MARK: - delgate data source
+
 extension SearchViewController: UITableViewDelegate, UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        3
+    }
     
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = table.dequeueReusableCell(withIdentifier: "cellID", for: indexPath)
+        cell.textLabel?.text = "indexPath \(indexPath)"
+        return cell
+    }
+    
+    
+}
+
+extension SearchViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar,
+                   textDidChange searchText: String) {
+        print(searchText)
+    }
 }
