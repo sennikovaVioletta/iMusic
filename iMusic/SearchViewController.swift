@@ -9,7 +9,7 @@
 import UIKit
 import Alamofire
 
-struct TRackModel {
+struct TrackModel {
     var trackName: String
     var artistName: String
 }
