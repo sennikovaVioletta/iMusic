@@ -59,10 +59,16 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
     private func setUpTableView() {
         table.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
     }
-  func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
+    
+    func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
+        switch viewModel {
 
-  }
-  
+        case .some:
+            print("viewController .some")
+        case .displayTracks:
+            print("viewController .displayTracks")
+        }
+    }
 }
 
 // MARK: - delgate data source
