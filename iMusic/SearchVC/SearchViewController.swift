@@ -20,6 +20,8 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
 
     @IBOutlet weak var table: UITableView!
     
+    
+    
 
   // MARK: Setup
   
@@ -37,19 +39,25 @@ class SearchViewController: UIViewController, SearchDisplayLogic {
   
   // MARK: Routing
   
+    
+    // MARK: View lifecycle
+    
+    override func viewDidLoad() {
+      super.viewDidLoad()
+      setUpSearchBar()
+      setUpTableView()
+      setup()
+    }
 
-  
-  // MARK: View lifecycle
-  
-  override func viewDidLoad() {
-    super.viewDidLoad()
-    setUpSearchBar()
-  }
   
     private func setUpSearchBar() {
         navigationItem.searchController = searchController
         navigationItem.hidesSearchBarWhenScrolling = false
         searchController.searchBar.delegate = self
+    }
+    
+    private func setUpTableView() {
+        table.register(UITableViewCell.self, forCellReuseIdentifier: "cellID")
     }
   func displayData(viewModel: Search.Model.ViewModel.ViewModelData) {
 
@@ -77,5 +85,8 @@ extension SearchViewController: UISearchBarDelegate {
     func searchBar(_ searchBar: UISearchBar,
                    textDidChange searchText: String) {
         print(searchText)
+        interactor?.makeRequest(request: Search.Model.Request.RequestType.getTracks)
+        
+        
     }
 }
